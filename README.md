@@ -40,11 +40,11 @@ To run the server
 
 Run..
 
-     launchServer.sh
+     ./launchServer.sh
 
 To run the encoder
 
-    launchEncoderTestPattern.sh *insert destination hostname of server* *insert a stream name*
+    ./launchEncoderTestPattern.sh *insert destination hostname of server* *insert a stream name*
 
 Example: 
 
