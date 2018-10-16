@@ -32,7 +32,8 @@ You have now built everything.
 
 To run the server
 
-- Run..
+Run..
+
      launchServer.sh
 
 To run the encoder
