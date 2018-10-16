@@ -18,10 +18,8 @@ func (l *DashPlayHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 }
 
 func (l *DashPlayHandler) servePlayer(w http.ResponseWriter, req *http.Request) {
-	curFileURL := req.URL.EscapedPath()[len("/ldash/play"):]
-	hostUrl := req.URL.Path[0:len("/ldash")]
-	curFilePath := path.Join(hostUrl, "download", curFileURL)
-
+	curFileURL := req.URL.EscapedPath()[len("/ldashplay"):]
+	curFilePath := path.Join("ldash", curFileURL)
 	base, _ := url.Parse("http://" + req.Host)
 	relativeUrl, _ := url.Parse(curFilePath)
 	manifestUrl := base.ResolveReference(relativeUrl).String()

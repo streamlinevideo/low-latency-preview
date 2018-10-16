@@ -19,7 +19,7 @@ type FileUploadHandler struct {
 
 func (u *FileUploadHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	utils.GetUploadLogger().Infof("Received upload request\n")
-	curFileURL := req.URL.EscapedPath()[len("/ldash/upload"):]
+	curFileURL := req.URL.EscapedPath()[len("/ldash"):]
 	vars := mux.Vars(req)
 	folder := vars["folder"]
 	curFolderPath := path.Join(u.BaseDir, folder)
@@ -49,6 +49,10 @@ func (u *FileUploadHandler) serveHTTPImpl(curFolderPath string, curFilePath stri
 	// create, mostly for segment
 	// for segment, we will allow partial downloading during the uploading to save the time for player(this is what low latency meaning)
 	// So here uses Symlink as a signal to tell download handler whether the uploading is finished or not.
+        symlink := curFilePath + ".symlink"
+        os.Symlink(curFilePath, symlink)
+        utils.GetUploadLogger().Debugf("create symlink %s @ %v \n", symlink, time.Now().Format(time.RFC3339))
+
 
 	f, rerr := os.Create(curFilePath)
 	if rerr != nil {
@@ -58,10 +62,6 @@ func (u *FileUploadHandler) serveHTTPImpl(curFolderPath string, curFilePath stri
 
 	utils.GetUploadLogger().Debugf("create file %s @ %v \n", curFilePath, time.Now().Format(time.RFC3339))
 	defer f.Close()
-
-	symlink := curFilePath + ".symlink"
-	os.Symlink(curFilePath, symlink)
-	utils.GetUploadLogger().Debugf("create symlink %s @ %v \n", symlink, time.Now().Format(time.RFC3339))
 
 	_, rerr = io.Copy(f, req.Body)
 	if rerr != nil {

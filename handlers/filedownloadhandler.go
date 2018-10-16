@@ -36,7 +36,7 @@ func (l *FileDownloadHandler) isFileUploadingDone(file string) bool {
 }
 
 func (l *FileDownloadHandler) serveDownload(w http.ResponseWriter, req *http.Request) {
-	curFileURL := req.URL.EscapedPath()[len("/ldash/download"):]
+	curFileURL := req.URL.EscapedPath()[len("/ldash"):]
 	curFilePath := path.Join(l.getSourcePath(req), curFileURL)
 	file, err := os.Open(curFilePath) // For read access.
 	if err != nil {
@@ -71,11 +71,12 @@ func (l *FileDownloadHandler) serveDownload(w http.ResponseWriter, req *http.Req
 			if read_err != nil {
 				if read_err != io.EOF { // print out if read error
 					utils.GetDownloadLogger().Errorf("Failed to read file: %v \n", err)
+                                        panic(read_err)
 				}
 			}
 
 			if bytesread > 0 {
-				utils.GetDownloadLogger().Debugf("read %d bytes \n", bytesread)
+				utils.GetDownloadLogger().Debugf("%s read %d bytes \n", curFileURL, bytesread)
 				_, errpr := w.Write(buffer[:bytesread])
 				if errpr != nil {
 					panic(errpr)
@@ -93,6 +94,7 @@ func (l *FileDownloadHandler) serveDownload(w http.ResponseWriter, req *http.Req
 				// if read to end and uploading is done, time to close the downloading too
 				break
 			}
+                        utils.GetDownloadLogger().Debugf("Read to end, but uploading is not finished yet: %v \n", err)
 		}
 		time.Sleep(50 * time.Millisecond)
 	}

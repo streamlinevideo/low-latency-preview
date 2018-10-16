@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo Oh 💩 here we go!
-echo View your stream at http://${1}:8080/ldash/play/${2}/manifest.mpd
+echo View your stream at http://${1}:8080/ldashplay/${2}/manifest.mpd
 
 # Encoding settings for x264 (CPU based encoder)
 
@@ -18,7 +18,7 @@ ffmpeg/ffmpeg \
     -g 150 \
     -keyint_min 150 \
     -b:v 4000k \
-    -vf "fps=30,drawtext=fontfile=OpenSans-Bold.ttf:box=1:fontcolor=white:boxcolor=black:fontsize=100':x=40:y=400:textfile=text.txt" \
+    -vf "fps=30,drawtext=fontfile=utils/OpenSans-Bold.ttf:box=1:fontcolor=white:boxcolor=black:fontsize=100':x=40:y=400:textfile=utils/text.txt" \
     -method PUT \
     -seg_duration 5 \
     -streaming 1 \
@@ -33,4 +33,4 @@ ffmpeg/ffmpeg \
     -remove_at_exit 1 \
     -adaptation_sets "id=0,streams=v id=1,streams=a" \
     -f dash \
-    http://${1}:8080/ldash/upload/${2}/manifest.mpd  >/dev/null 2>encode.log &
+    http://${1}:8080/ldash/${2}/manifest.mpd  >/dev/null 2>logs/encode.log &

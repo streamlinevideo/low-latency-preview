@@ -31,6 +31,10 @@ func GetPlayerLogger() loggo.Logger {
 	return getLogger("Player")
 }
 
+func GetDeleteLogger() loggo.Logger {
+	return getLogger("Delete")
+}
+
 func GetGCloadLogger() loggo.Logger {
 	return getLogger("GC")
 }

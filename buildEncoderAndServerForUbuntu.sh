@@ -10,7 +10,7 @@ sudo apt-get -y update
 
 sudo apt-get -y upgrade
 
-sudo apt-get install -y yasm libx264-dev libfreetype6-dev golang-go
+sudo apt-get install -y yasm libx264-dev libfreetype6-dev golang-go libass-dev pkg-config texinfo build-essential automake autoconf libssl-dev
 
 export GOPATH=$HOME/go export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
@@ -18,7 +18,7 @@ go get -d -v .
 
 go build
 
-mkdir www
+mkdir www logs
 
 # Download and compile FFmpeg
 
