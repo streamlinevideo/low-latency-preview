@@ -5,7 +5,7 @@ echo View your stream at http://${1}:8080/ldashplay/${2}/manifest.mpd
 
 # Encoding settings for x264 (CPU based encoder)
 
-x264enc='libx264 -profile:v high -preset veryfast -bf 0 -refs 3 -sc_threshold 0'
+x264enc='libx264 -tune zerolatency -profile:v high -preset veryfast -bf 0 -refs 3 -sc_threshold 0'
 
 ffmpeg/ffmpeg \
     -hide_banner \
