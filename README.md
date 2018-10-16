@@ -24,11 +24,11 @@ Boot into Ubuntu
 
 Run...
 
-    git clone https://github.com/colleenkhenry/streamline-low-latency-preview.git
+    git clone https://github.com/colleenkhenry/low-latency-preview.git
 
 Run... 
 
-    cd  streamline-low-latency-preview
+    cd  low-latency-preview
 
 Run..
 
