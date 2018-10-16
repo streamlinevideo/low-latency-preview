@@ -53,7 +53,7 @@ Example:
 The output will look like
 
     Oh 💩 here we go!
-    View your stream at http://localhost:8080/ldash/play/1234/manifest.mpd
+    View your stream at http://localhost:8080/ldashplay/1234/manifest.mpd
 
 Go to the URL which it prints and you should see your stream!
 
