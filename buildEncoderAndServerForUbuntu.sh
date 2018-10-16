@@ -6,7 +6,11 @@ sudo apt-get -y update
 
 sudo apt-get -y upgrade
 
-sudo apt-get install yasm libx264-dev libfreetype6-dev
+sudo apt-get install -y yasm libx264-dev libfreetype6-dev golang-go
+
+go get -d -v .
+
+go build
 
 # Download and compile FFmpeg
 

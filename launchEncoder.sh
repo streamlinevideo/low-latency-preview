@@ -34,4 +34,6 @@ ffmpeg \
     -remove_at_exit 1 \
     -adaptation_sets "id=0,streams=v id=1,streams=a" \
     -f dash \
-    http://${1}:8080/ldash/upload/${2}/manifest.mpd  >/dev/null 2>encode.log &
+    http://${1}:8080/ldash/upload/${2}/manifest.mpd
+
+#>/dev/null 2>encode.log &
