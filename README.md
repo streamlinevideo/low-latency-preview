@@ -20,12 +20,18 @@ If you are interested in the streamline prime project, check out this discussion
 
 Directions:
 
-- Boot into Ubuntu
-- Run...
+Boot into Ubuntu
+
+Run...
+
     git clone https://github.com/colleenkhenry/streamline-low-latency-preview.git
-- Run... 
+
+Run... 
+
     cd  streamline-low-latency-preview
-- Run..
+
+Run..
+
     sudo ./buildEncoderAndServerForUbuntu.sh
 
 You have now built everything.
