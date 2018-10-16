@@ -28,11 +28,11 @@ Run...
 
 Run... 
 
-    cd  low-latency-preview
+    cd low-latency-preview
 
 Run..
 
-    sudo ./buildEncoderAndServerForUbuntu.sh
+    ./buildEncoderAndServerForUbuntu.sh
 
 You have now built everything.
 
@@ -40,7 +40,7 @@ To run the server
 
 Run..
 
-     ./launchServer.sh
+     sudo ./launchServer.sh
 
 To run the encoder
 
@@ -53,7 +53,7 @@ Example:
 The output will look like
 
     Oh 💩 here we go!
-    View your stream at http://localhost:8080/ldash/play/1324/manifest.mpd
+    View your stream at http://localhost:8080/ldash/play/1234/manifest.mpd
 
 Go to the URL which it prints and you should see your stream!
 
@@ -65,3 +65,6 @@ You can modify the FFmpeg encoding settings to taste for resolution, inputs, etc
 
 We are using the dash.js player. Feel free to visit http://reference.dashif.org/dash.js/nightly/samples/dash-if-reference-player/index.html for their nightly referencep player or their github at https://github.com/Dash-Industry-Forum/dash.js/wiki.
 
+Help wanted :)
+
+If you can figure out why there is a gap between segments in download time, we'd really appreciate a patch!
