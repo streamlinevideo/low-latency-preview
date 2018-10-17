@@ -18,7 +18,7 @@ ffmpeg/ffmpeg \
     -g 150 \
     -keyint_min 150 \
     -b:v 4000k \
-    -vf "fps=30,drawtext=fontfile=utils/OpenSans-Bold.ttf:box=1:fontcolor=white:boxcolor=black:fontsize=100':x=40:y=400:textfile=utils/text.txt" \
+    -vf "fps=30,drawtext=fontfile=utils/OpenSans-Bold.ttf:box=1:fontcolor=black:boxcolor=white:fontsize=100':x=40:y=400:textfile=utils/text.txt" \
     -method PUT \
     -seg_duration 5 \
     -streaming 1 \
