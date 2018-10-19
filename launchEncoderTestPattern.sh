@@ -1,7 +1,21 @@
 #!/bin/bash
 
+if [ -z "$1" ]; then
+    TARGETSERVER="127.0.0.1"
+    echo "Target Server not specified, assuming ${TARGETSERVER}..."
+else
+    TARGETSERVER="$1"
+fi
+
+if [ -z "$2" ]; then
+    STREAMID="1234"
+    echo "Target Path not specified, assuming ${STREAMID}..."
+else
+    STREAMID="$1"
+fi
+
 echo Oh 💩 here we go!
-echo View your stream at http://${1}:8080/ldashplay/${2}/manifest.mpd
+echo View your stream at http://${TARGETSERVER}:8080/ldashplay/${STREAMID}/manifest.mpd
 
 # Encoding settings for x264 (CPU based encoder)
 
@@ -33,4 +47,4 @@ ffmpeg/ffmpeg \
     -remove_at_exit 1 \
     -adaptation_sets "id=0,streams=v id=1,streams=a" \
     -f dash \
-    http://${1}:8080/ldash/${2}/manifest.mpd  >/dev/null 2>logs/encode.log &
+    http://${TARGETSERVER}:8080/ldash/${STREAMID}/manifest.mpd  >/dev/null 2>logs/encode.log &
