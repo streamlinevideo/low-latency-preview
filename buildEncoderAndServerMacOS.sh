@@ -2,7 +2,7 @@
 
 cd utils
 
-wget https://cdn.theunarchiver.com/downloads/unarMac.zip
+curl -O https://cdn.theunarchiver.com/downloads/unarMac.zip
 
 unzip unarMac.zip
 
