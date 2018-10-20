@@ -42,5 +42,5 @@ mv ffmpeg-git-20181018-64bit-static/ ffmpeg/
 
 rm ffmpeg-git-64bit-static.tar.xz
 
-rm low-latency-preview-master/
+rm low-latency-preview-master
 
