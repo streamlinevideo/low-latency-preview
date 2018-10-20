@@ -6,6 +6,8 @@ wget https://cdn.theunarchiver.com/downloads/unarMac.zip
 
 unzip unarMac.zip
 
+cd ..
+
 rm -r -f ffmpeg/
 
 mkdir ffmpeg
