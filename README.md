@@ -21,7 +21,7 @@ If you are interested in the streamline prime project, check out this discussion
 
 Run...
 
-    wget https://codeload.github.com/streamlinevideo/low-latency-preview/zip/master && unzip master && rm -r -f master/ && cd low-latency-preview-master/ && ./buildEncoderAndServerForUbuntu.sh    
+    wget https://codeload.github.com/streamlinevideo/low-latency-preview/zip/master && unzip master && rm -r -f master/ && cd low-latency-preview-master/ && ./buildEncoderAndServerUbuntu.sh    
 
 You have now built everything. Continue to the run section.
 
