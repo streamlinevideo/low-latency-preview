@@ -34,7 +34,7 @@ First make sure you have homebrew installed.
 
 Run....
 
-    curl -o master.zip https://codeload.github.com/streamlinevideo/low-latency-preview/zip/master && unzip master.zip && cd low-latency-preview-master/
+    curl -o master.zip https://codeload.github.com/streamlinevideo/low-latency-preview/zip/master && unzip master.zip && cd low-latency-preview-master/ && ./buildEncoderAndServerMacOS.sh
     
 
 # Running the server
