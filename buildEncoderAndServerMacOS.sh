@@ -14,7 +14,7 @@ mkdir ffmpeg
 
 cd ffmpeg
 
-wget https://evermeet.cx/ffmpeg/ffmpeg-92190-gb2adc31697.7z
+curl -O https://evermeet.cx/ffmpeg/ffmpeg-92190-gb2adc31697.7z
 
 ../utils/unar ffmpeg-92190-gb2adc31697.7z
 
@@ -26,7 +26,7 @@ rm -r -f *zip*
 
 rm -r -f *tar*
 
-wget https://dl.google.com/go/go1.11.1.darwin-amd64.tar.gz
+curl -O https://dl.google.com/go/go1.11.1.darwin-amd64.tar.gz
 
 tar xvzf go1.11.1.darwin-amd64.tar.gz
 
