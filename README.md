@@ -40,9 +40,7 @@ Run....
 # Running the server
     
 
-To run the server
-
-Run..
+Run...
 
      sudo ./launchServer.sh
 
