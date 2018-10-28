@@ -71,7 +71,7 @@ Be impressed by the speed! Be excited by the opportunities for scalability. Lear
 
 ## Join the streamline community
 
-The streamline team hangs out in the [video-dev](http://video-dev.herokuapp.com/) slack in the #streamline room.  Feel free to join the fun, ask for features, give feedback, etc.
+The streamline team hangs out in the [video-dev](http://video-dev.herokuapp.com/) slack in the [#streamline room](https://video-dev.slack.com/messages/CD03ZUF8F).  Feel free to join the fun, ask for features, give feedback, etc.
 
 ## Credits
 
