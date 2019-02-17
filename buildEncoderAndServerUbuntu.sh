@@ -34,13 +34,10 @@ rm -r -f www logs
 
 mkdir www logs
 
-wget https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-64bit-static.tar.xz
+wget https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
 
-tar xf ffmpeg-git-64bit-static.tar.xz
+tar xf ffmpeg-release-amd64-static.tar.xz
 
-mv ffmpeg-git-20181018-64bit-static/ ffmpeg/
+mv ffmpeg-4.1.1-amd64-static ffmpeg/
 
-rm ffmpeg-git-64bit-static.tar.xz
-
-rm low-latency-preview-master
-
+rm ffmpeg-release-amd64-static.tar.xz
