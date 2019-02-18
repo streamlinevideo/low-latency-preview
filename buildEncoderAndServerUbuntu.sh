@@ -32,7 +32,7 @@ go/bin/go build
 
 rm -r -f www logs
 
-mkdir www logs
+mkdir -p www logs
 
 wget https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
 

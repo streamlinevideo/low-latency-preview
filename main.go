@@ -13,11 +13,18 @@ import (
 )
 
 func main() {
+
+	// TODO: This needs a better way of handling arguments
 	flag.Parse()
 	args := flag.Args()
-	if len(args) != 1 || args[0] == "" {
-		utils.GetMainLogger().Errorf("Usage: need base dir\n")
+	if len(args) == 0 || args[0] == "" {
+		utils.GetMainLogger().Errorf("Usage: run main.go BASE_PATH [LISTEN_HOST_PORT (Default=:8080)]\n")
 		return
+	}
+	
+	bindString := ":8080"
+	if len(args) >= 2 {
+		bindString = args[1]
 	}
 
 	filePath, err := filepath.Abs(args[0])
@@ -54,6 +61,6 @@ func main() {
 	r.Handle("/ldash/{folder}/{name:[a-zA-Z0-9/_-]+}.{name:[a-zA-Z0-9/_-]+}", file_deleteHandler).Methods("DELETE")
 	r.Handle("/ldashplay/{folder}/{name:[a-zA-Z0-9/_-]+}.{name:[a-zA-Z0-9/_-]+}", dash_playHandler)
 
-	utils.GetMainLogger().Infof("start server\n")
-	log.Fatal(http.ListenAndServe(":8080", r))
+	utils.GetMainLogger().Infof("start server on %s\n", bindString)
+	log.Fatal(http.ListenAndServe(bindString, r))
 }
