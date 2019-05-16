@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"../utils"
+	"app/utils"
 )
 
 type FileDownloadHandler struct {

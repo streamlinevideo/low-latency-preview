@@ -8,7 +8,7 @@ import (
 	"path"
 	"time"
 
-	"../utils"
+	"app/utils"
 	"github.com/gorilla/mux"
 )
 

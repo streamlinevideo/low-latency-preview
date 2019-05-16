@@ -6,7 +6,7 @@ import (
 	"path"
 	"time"
 
-	"../utils"
+	"app/utils"
 )
 
 // UploadHandler handles for http delete

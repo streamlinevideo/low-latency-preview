@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 	"time"
 
-	"./handlers"
-	"./utils"
+	"app/handlers"
+	"app/utils"
 	"github.com/gorilla/mux"
 )
 

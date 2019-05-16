@@ -5,7 +5,7 @@ import (
 	"net/url"
 	"path"
 
-	"../utils"
+	"app/utils"
 )
 
 type DashPlayHandler struct {
