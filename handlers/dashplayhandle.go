@@ -18,7 +18,16 @@ func (l *DashPlayHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 }
 
 func (l *DashPlayHandler) servePlayer(w http.ResponseWriter, req *http.Request) {
-	curFileURL := req.URL.EscapedPath()[len("/ldashplay"):]
+
+	utils.GetMainLogger().Errorf("KEV = " + req.URL.EscapedPath() + "\n")
+
+	curFileURL := ""
+	if req.URL.EscapedPath() == "/" {
+		curFileURL = "/localhost/manifest.mpd"
+	} else {
+		curFileURL = req.URL.EscapedPath()[len("/ldashplay"):]
+	}
+
 	curFilePath := path.Join("ldash", curFileURL)
 	base, _ := url.Parse("http://" + req.Host)
 	relativeUrl, _ := url.Parse(curFilePath)
