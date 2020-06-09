@@ -14,11 +14,11 @@ mkdir ffmpeg
 
 cd ffmpeg
 
-curl -O https://evermeet.cx/ffmpeg/ffmpeg-92795-gcdbf8847ea.7z
+curl -O https://evermeet.cx/ffmpeg/ffmpeg-98066-gbd6336b970.7z
 
-../utils/unar ffmpeg-92795-gcdbf8847ea.7z
+../utils/unar ffmpeg-98066-gbd6336b970.7z
 
-rm ffmpeg-92795-gcdbf8847ea.7z
+rm ffmpeg-98066-gbd6336b970.7z
 
 cd ..
 
