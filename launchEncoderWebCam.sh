@@ -1,9 +1,5 @@
 #!/bin/bash
 
-if [ "$(uname)" != "Darwin" ]; then
-  echo "Expecting Apple Mac hardware"
-fi
-
 if [ -z "$1" ]; then
     TARGETSERVER="127.0.0.1"
     echo "Target Server not specified, assuming ${TARGETSERVER}..."
@@ -21,22 +17,31 @@ fi
 echo Oh 💩 here we go!
 echo View your stream at http://${TARGETSERVER}:8080/ldashplay/${STREAMID}/manifest.mpd
 
-# Encoding settings for x264 (CPU based encoder)
+input='-f lavfi -i testsrc2=size=1920x1080:rate=30 -pix_fmt yuv420p'
 
-x264enc='libx264 -tune zerolatency -profile:v high -preset veryfast -bf 0 -refs 3 -sc_threshold 0'
+if [ "$(uname)" == "Darwin" ]; then
+  # Use Apple Mac hardware encoder
+  echo Using hardware encoder
+  x264enc='h264_videotoolbox -profile:v main'
+
+  #using Apple hardware webcam
+  input='-f avfoundation -video_size 2048x1536 -framerate 20 -i 1'
+else
+  # Encoding settings for x264 (CPU based encoder)
+  echo Using software encoder
+  x264enc='libx264 -tune zerolatency -profile:v high -preset veryfast -bf 0 -refs 3 -sc_threshold 0'
+fi
 
 ffmpeg/ffmpeg \
     -hide_banner \
     -re \
-    -f lavfi \
-    -i "testsrc2=size=1920x1080:rate=30" \
-    -pix_fmt yuv420p \
+    ${input} \
     -map 0:v \
-    -c:v h264_videotoolbox -profile:v main \
+    -c:v ${x264enc} \
     -g 150 \
     -keyint_min 150 \
     -b:v 4000k \
-    -vf "fps=30,drawtext=fontfile=utils/OpenSans-Bold.ttf:box=1:fontcolor=black:boxcolor=white:fontsize=100':x=40:y=400:textfile=utils/text.txt" \
+    -vf "fps=30,drawtext=fontfile=utils/OpenSans-Bold.ttf:box=1:fontcolor=black:boxcolor=white:fontsize=100':x=40:y=500:textfile=utils/text.txt" \
     -method PUT \
     -seg_duration 5 \
     -streaming 1 \
