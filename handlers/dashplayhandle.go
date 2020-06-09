@@ -18,7 +18,16 @@ func (l *DashPlayHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 }
 
 func (l *DashPlayHandler) servePlayer(w http.ResponseWriter, req *http.Request) {
-	curFileURL := req.URL.EscapedPath()[len("/ldashplay"):]
+
+	utils.GetMainLogger().Errorf("KEV = " + req.URL.EscapedPath() + "\n")
+
+	curFileURL := ""
+	if req.URL.EscapedPath() == "/" {
+		curFileURL = "/localhost/manifest.mpd"
+	} else {
+		curFileURL = req.URL.EscapedPath()[len("/ldashplay"):]
+	}
+
 	curFilePath := path.Join("ldash", curFileURL)
 	base, _ := url.Parse("http://" + req.Host)
 	relativeUrl, _ := url.Parse(curFilePath)
@@ -593,7 +602,7 @@ func (l *DashPlayHandler) servePlayer(w http.ResponseWriter, req *http.Request) 
 		<div>
 	Dash Test Player for low latency. Make sure your system clock has been recently synched to a NTP server. <br/>
 	Segments behind <now> for live: <input id="segBehind" type="text"  value="0" style="width:20px">&nbsp;
-	Target buffer in seconds: <input id="targetBufferInput" type="text"  value="2.2" style="width:25px">&nbsp;
+	Target buffer in seconds: <input id="targetBufferInput" type="text"  value="0.6" style="width:25px">&nbsp;
 	Enable throughput estimation: <input id="estimateThroughput" type="checkbox" >&nbsp;
 	Max number of chart data points: <input id="maxPoints" type="text"  value="500" style="width:30px"><br/>
 	Enter the mpd to test: <input id="mpd" type="text"  style="width:500px">
