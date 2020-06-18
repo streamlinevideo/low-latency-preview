@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo pkill main
-sudo pkill ffmpeg
+pkill main
+pkill ffmpeg
 
 echo All processes have been killed ☠

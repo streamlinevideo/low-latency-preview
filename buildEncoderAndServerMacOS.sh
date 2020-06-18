@@ -38,6 +38,6 @@ go/bin/go build
 
 rm -r -f www/
 
-mkdir www
+mkdir -p www logs
 
 rm -r -f low-latency-preview-master

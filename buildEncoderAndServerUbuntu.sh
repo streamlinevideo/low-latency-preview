@@ -16,11 +16,7 @@ rm -r -f *zip*
 
 rm -r -f *tar*
 
-wget https://dl.google.com/go/go1.11.1.linux-amd64.tar.gz
-
-tar xvzf go1.11.1.linux-amd64.tar.gz
-
-rm go1.11.1.linux-amd64.tar.gz
+wget -O- https://dl.google.com/go/go1.11.1.linux-amd64.tar.gz | tar xz
 
 go/bin/go get -d -v .
 
@@ -30,14 +26,8 @@ go/bin/go get -d -v .
 
 go/bin/go build
 
-rm -r -f www logs
+mkdir -p www logs
 
-mkdir www logs
+mkdir -p ffmpeg
+wget -O- "https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz" | tar xJ -C ffmpeg --strip-components 1
 
-wget "https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz"
-
-tar xf ffmpeg-release-amd64-static.tar.xz
-
-rm ffmpeg-release-amd64-static.tar.xz
-
-mv ffmpeg-* ffmpeg/
