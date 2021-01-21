@@ -14,11 +14,12 @@ mkdir ffmpeg
 
 cd ffmpeg
 
-curl -O https://evermeet.cx/ffmpeg/ffmpeg-98066-gbd6336b970.7z
+# NOTE: This link will need to be updated whenever ffmpeg creates a new binary release
+wget https://evermeet.cx/ffmpeg/ffmpeg-100675-gf359575c0b.7z
 
-../utils/unar ffmpeg-98066-gbd6336b970.7z
+../utils/unar ffmpeg-100675-gf359575c0b.7z
 
-rm ffmpeg-98066-gbd6336b970.7z
+rm ffmpeg-100675-gf359575c0b.7z
 
 cd ..
 
