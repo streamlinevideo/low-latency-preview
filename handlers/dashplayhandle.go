@@ -5,7 +5,7 @@ import (
 	"net/url"
 	"path"
 
-	"../utils"
+	"github.com/streamlinevideo/low-latency-preview/utils"
 )
 
 type DashPlayHandler struct {

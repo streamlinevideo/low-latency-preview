@@ -27,11 +27,13 @@ rm -r -f *zip*
 
 rm -r -f *tar*
 
-curl -O https://dl.google.com/go/go1.11.1.darwin-amd64.tar.gz
+wget https://golang.org/dl/go1.15.7.darwin-amd64.tar.gz
 
-tar xvzf go1.11.1.darwin-amd64.tar.gz
+tar xvzf go1.15.7.darwin-amd64.tar.gz 
 
-rm go1.11.1.darwin-amd64.tar.gz
+rm go1.15.7.darwin-amd64.tar.gz  
+
+go/bin/go mod init github.com/streamlinevideo/low-latency-preview
 
 go/bin/go get -d -v .
 
