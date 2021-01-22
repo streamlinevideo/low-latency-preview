@@ -15,11 +15,11 @@ mkdir ffmpeg
 cd ffmpeg
 
 # NOTE: This link will need to be updated whenever ffmpeg creates a new binary release
-wget https://evermeet.cx/ffmpeg/ffmpeg-100675-gf359575c0b.7z
+wget https://evermeet.cx/ffmpeg/ffmpeg-4.3.1.7z
 
-../utils/unar ffmpeg-100675-gf359575c0b.7z
+../utils/unar ffmpeg-4.3.1.7z
 
-rm ffmpeg-100675-gf359575c0b.7z
+rm ffmpeg-4.3.1.7z
 
 cd ..
 
