@@ -14,7 +14,7 @@ This player will load extra quickly and then play with time a bit to "walk in" t
 
 - The work in this repo on low latency will later form the basis of an update to the larger [streamline](https://github.com/streamlinevideo/streamline) project. It is a proof of concept / preview for a future version called [streamline prime.](If%20you%20are%20interested%20in%20the%20streamline%20prime%20project,%20check%20out%20this%20discussion.%20https://github.com/streamlinevideo/streamline/issues/13) 
 - This demo assumes that you are using Ubuntu / Debian or MacOS
-- This demo provides everything you need to ruin a low latency live stream for educational purposes
+- This demo provides everything you need to run a low latency live stream for educational purposes
 - This is a preview and proof of concept. It is not meant to be used in production. There has not been extensive testing yet. There are bugs. I promise you, there are bugs ;). Feel free to test, contribute fixes, etc, but don't dive right in and assume the pieces are production ready.
 
 ## TODO for preview project
