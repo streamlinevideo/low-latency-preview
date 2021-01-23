@@ -11,7 +11,7 @@ if [ -z "$2" ]; then
     STREAMID="1234"
     echo "Target Path not specified, assuming ${STREAMID}..."
 else
-    STREAMID="$1"
+    STREAMID="$2"
 fi
 
 echo Oh 💩 here we go!
