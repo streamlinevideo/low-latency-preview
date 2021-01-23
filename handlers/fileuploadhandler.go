@@ -8,7 +8,7 @@ import (
 	"path"
 	"time"
 
-	"../utils"
+	"github.com/streamlinevideo/low-latency-preview/utils"
 	"github.com/gorilla/mux"
 )
 

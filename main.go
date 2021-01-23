@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 	"time"
 
-	"./handlers"
-	"./utils"
+	"github.com/streamlinevideo/low-latency-preview/handlers"
+	"github.com/streamlinevideo/low-latency-preview/utils"
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 )

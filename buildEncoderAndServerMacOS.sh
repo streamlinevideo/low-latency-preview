@@ -14,11 +14,12 @@ mkdir ffmpeg
 
 cd ffmpeg
 
-curl -O https://evermeet.cx/ffmpeg/ffmpeg-98066-gbd6336b970.7z
+# NOTE: This link will need to be updated whenever ffmpeg creates a new binary release
+wget https://evermeet.cx/ffmpeg/ffmpeg-4.3.1.7z
 
-../utils/unar ffmpeg-98066-gbd6336b970.7z
+../utils/unar ffmpeg-4.3.1.7z
 
-rm ffmpeg-98066-gbd6336b970.7z
+rm ffmpeg-4.3.1.7z
 
 cd ..
 
@@ -26,11 +27,13 @@ rm -r -f *zip*
 
 rm -r -f *tar*
 
-curl -O https://dl.google.com/go/go1.11.1.darwin-amd64.tar.gz
+wget https://golang.org/dl/go1.15.7.darwin-amd64.tar.gz
 
-tar xvzf go1.11.1.darwin-amd64.tar.gz
+tar xvzf go1.15.7.darwin-amd64.tar.gz 
 
-rm go1.11.1.darwin-amd64.tar.gz
+rm go1.15.7.darwin-amd64.tar.gz  
+
+go/bin/go mod init github.com/streamlinevideo/low-latency-preview
 
 go/bin/go get -d -v .
 
