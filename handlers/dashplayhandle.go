@@ -5,7 +5,7 @@ import (
 	"net/url"
 	"path"
 
-	"github.com/streamlinevideo/low-latency-preview/utils"
+	"streamline/utils"
 )
 
 type DashPlayHandler struct {
@@ -25,10 +25,10 @@ func (l *DashPlayHandler) servePlayer(w http.ResponseWriter, req *http.Request) 
 	if req.URL.EscapedPath() == "/" {
 		curFileURL = "/localhost/manifest.mpd"
 	} else {
-		curFileURL = req.URL.EscapedPath()[len("/ldashplay"):]
+		curFileURL = req.URL.EscapedPath()[len("/dashplay"):]
 	}
 
-	curFilePath := path.Join("ldash", curFileURL)
+	curFilePath := path.Join("dash", curFileURL)
 	base, _ := url.Parse("http://" + req.Host)
 	relativeUrl, _ := url.Parse(curFilePath)
 	manifestUrl := base.ResolveReference(relativeUrl).String()
@@ -613,7 +613,7 @@ func (l *DashPlayHandler) servePlayer(w http.ResponseWriter, req *http.Request) 
 				<div>
 					<video id="player" controls style="width=640px;height:360px"></video>
 					<div>
-					<span id="wallclock" style="font-family: Arial, Helvetica, sans-serif; color:white;background:black;width:270px;font-size:xx-large;z-index: 10;position: absolute;top:125px;left:25px"></span>  
+					<span id="wallclock" style="font-family: Arial, Helvetica, sans-serif; color:white;background:black;width:120px;font-size:small;z-index: 10;position: absolute;top:125px;left:25px"></span>  
 
 					</div>
 				</div>

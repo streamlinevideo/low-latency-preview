@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/streamlinevideo/low-latency-preview/handlers"
-	"github.com/streamlinevideo/low-latency-preview/utils"
+	"streamline/handlers"
+	"streamline/utils"
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 )
@@ -31,12 +31,12 @@ func main() {
 	// clean the segment folder
 	utils.RemoveContents(args[0])
 
-	file_downloadHandler := &handlers.FileDownloadHandler{
+	file_dashdownloadHandler := &handlers.FileDashDownloadHandler{
 		StartTime: time.Now(),
 		BaseDir:   filePath,
 	}
 
-	file_uploadHandler := &handlers.FileUploadHandler{
+	file_dashuploadHandler := &handlers.FileDashUploadHandler{
 		BaseDir: filePath,
 	}
 
@@ -44,16 +44,32 @@ func main() {
 		BaseDir: filePath,
 	}
 
-	file_deleteHandler := &handlers.FileDeleteHandler{
+	file_dashdeleteHandler := &handlers.FileDashDeleteHandler{
+		BaseDir: filePath,
+	}
+
+	file_hlsdownloadHandler := &handlers.FileHLSDownloadHandler{
+		StartTime: time.Now(),
+		BaseDir:   filePath,
+	}
+
+	file_hlsuploadHandler := &handlers.FileHLSUploadHandler{
+		BaseDir: filePath,
+	}
+
+	file_hlsdeleteHandler := &handlers.FileHLSDeleteHandler{
 		BaseDir: filePath,
 	}
 
 	r := mux.NewRouter()
 
-	r.Handle("/ldash/{folder}/{name:[a-zA-Z0-9/_-]+}.{name:[a-zA-Z0-9/_-]+}", file_uploadHandler).Methods("PUT", "POST")
-	r.Handle("/ldash/{folder}/{name:[a-zA-Z0-9/_-]+}.{name:[a-zA-Z0-9/_-]+}", file_downloadHandler).Methods("GET")
-	r.Handle("/ldash/{folder}/{name:[a-zA-Z0-9/_-]+}.{name:[a-zA-Z0-9/_-]+}", file_deleteHandler).Methods("DELETE")
-	r.Handle("/ldashplay/{folder}/{name:[a-zA-Z0-9/_-]+}.{name:[a-zA-Z0-9/_-]+}", dash_playHandler)
+	r.Handle("/dash/{folder}/{name:[a-zA-Z0-9/_-]+}.{name:[a-zA-Z0-9/_-]+}", file_dashuploadHandler).Methods("PUT", "POST")
+	r.Handle("/dash/{folder}/{name:[a-zA-Z0-9/_-]+}.{name:[a-zA-Z0-9/_-]+}", file_dashdownloadHandler).Methods("GET")
+	r.Handle("/dash/{folder}/{name:[a-zA-Z0-9/_-]+}.{name:[a-zA-Z0-9/_-]+}", file_dashdeleteHandler).Methods("DELETE")
+	r.Handle("/dashplay/{folder}/{name:[a-zA-Z0-9/_-]+}.{name:[a-zA-Z0-9/_-]+}", dash_playHandler)
+	r.Handle("/hls/{folder}/{name:[a-zA-Z0-9/_-]+}.{name:[a-zA-Z0-9/_-]+}", file_hlsuploadHandler).Methods("PUT", "POST")
+	r.Handle("/hls/{folder}/{name:[a-zA-Z0-9/_-]+}.{name:[a-zA-Z0-9/_-]+}", file_hlsdownloadHandler).Methods("GET")
+	r.Handle("/hls/{folder}/{name:[a-zA-Z0-9/_-]+}.{name:[a-zA-Z0-9/_-]+}", file_hlsdeleteHandler).Methods("DELETE")
 	r.Handle("/", dash_playHandler)
 
 	// KJSL: Adding CORS
