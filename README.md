@@ -12,9 +12,9 @@ This player will load extra quickly and then play with time a bit to "walk in" t
 
 ## Things to know
 
-- The work in this repo on low latency will later form the basis of an update to the larger [streamline](https://github.com/streamlinevideo/streamline) project. It is a proof of concept / preview for a future version called [streamline prime.](If%20you%20are%20interested%20in%20the%20streamline%20prime%20project,%20check%20out%20this%20discussion.%20https://github.com/streamlinevideo/streamline/issues/13) 
+- The work in this repo on low latency will later form the basis of an update to the larger [streamline](https://github.com/streamlinevideo/streamline) project. It is a proof of concept / preview for a future version called streamline prime. If you are interested in the streamline prime project, check out [this discussion](https://github.com/streamlinevideo/streamline/issues/13).
 - This demo assumes that you are using Ubuntu / Debian or MacOS
-- This demo provides everything you need to ruin a low latency live stream for educational purposes
+- This demo provides everything you need to run a low latency live stream for educational purposes
 - This is a preview and proof of concept. It is not meant to be used in production. There has not been extensive testing yet. There are bugs. I promise you, there are bugs ;). Feel free to test, contribute fixes, etc, but don't dive right in and assume the pieces are production ready.
 
 ## TODO for preview project
@@ -44,7 +44,7 @@ Run....
     
 ## Running the server
 
-    sudo ./launchServer.sh
+    ./launchServer.sh
 
 ## Running the test pattern generator and encoder 
 
@@ -77,6 +77,6 @@ The streamline team hangs out in the [video-dev](http://video-dev.herokuapp.com/
 
 - Credit to Lei Zhang [@codingtmd](https://github.com/codingtmd) for writing the server. 
 - Thank you to Matt Szatmary [@szatmary](https://github.com/szatmary) for helping us debug. 
-- Credit to Karthic Jeypal [@jkarthic-akamai](https://github.com/jkarthic-akamai) for his work on FFmepg that makes this possible. 
+- Credit to Karthic Jeypal [@jkarthic-akamai](https://github.com/jkarthic-akamai) for his work on FFmpeg that makes this possible. 
 - Credit to Will Law [@wilaw](https://github.com/wilaw) and the whole dash.js team for the player that enables this. We are using the dash.js player. Feel free to visit their [website](http://reference.dashif.org/dash.js/nightly/samples/dash-if-reference-player/index.html) for their nightly reference player or their [github](https://github.com/Dash-Industry-Forum/dash.js/wiki).
 - ...and I guess me,  Colleen Kelly Henry [@colleenkhenry](https://github.com/colleenkhenry), for putting this all together.

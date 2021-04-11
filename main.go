@@ -10,8 +10,8 @@ import (
 	"app/handlers"
 	"app/utils"
 	"github.com/gorilla/mux"
+	"github.com/rs/cors"
 )
-
 func main() {
 	flag.Parse()
 	args := flag.Args()
@@ -49,11 +49,20 @@ func main() {
 	}
 
 	r := mux.NewRouter()
+
 	r.Handle("/ldash/{folder}/{name:[a-zA-Z0-9/_-]+}.{name:[a-zA-Z0-9/_-]+}", file_uploadHandler).Methods("PUT", "POST")
 	r.Handle("/ldash/{folder}/{name:[a-zA-Z0-9/_-]+}.{name:[a-zA-Z0-9/_-]+}", file_downloadHandler).Methods("GET")
 	r.Handle("/ldash/{folder}/{name:[a-zA-Z0-9/_-]+}.{name:[a-zA-Z0-9/_-]+}", file_deleteHandler).Methods("DELETE")
 	r.Handle("/ldashplay/{folder}/{name:[a-zA-Z0-9/_-]+}.{name:[a-zA-Z0-9/_-]+}", dash_playHandler)
+	r.Handle("/", dash_playHandler)
+
+	// KJSL: Adding CORS
+	c := cors.New(cors.Options{
+		AllowedOrigins: []string{"*"},
+		AllowCredentials: true,
+	})
+	rcors := c.Handler(r)
 
 	utils.GetMainLogger().Infof("start server\n")
-	log.Fatal(http.ListenAndServe(":8080", r))
+	log.Fatal(http.ListenAndServe(":8080", rcors))
 }
