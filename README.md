@@ -69,10 +69,6 @@ To kill the streams...
 
 Be impressed by the speed! Be excited by the opportunities for scalability. Learn about the realities of low latency live streaming and how to implement it. You can learn form this and modify parts to build your own own live streaming system. This project itself doesn't have a huge use, the proof of concept of the architecture, the server that we have created, and the documented settings for FFmpeg and dash.js are what is of value to other projects.
 
-## Join the streamline community
-
-The streamline team hangs out in the [video-dev](http://video-dev.herokuapp.com/) slack in the [#streamline room](https://video-dev.slack.com/messages/CD03ZUF8F).  Feel free to join the fun, ask for features, give feedback, etc.
-
 ## Credits
 
 - Credit to Lei Zhang [@codingtmd](https://github.com/codingtmd) for writing the server. 
